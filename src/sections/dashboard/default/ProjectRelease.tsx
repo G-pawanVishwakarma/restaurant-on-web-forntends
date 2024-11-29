@@ -21,7 +21,7 @@ import { Add, Link1 } from 'iconsax-react';
 
 const ProjectRelease = () => {
   return (
-    <MainCard title="Project - Able Pro">
+    <MainCard title="Project - Restaurants on web">
       <Grid container spacing={1.5}>
         <Grid item xs={12}>
           <Stack spacing={1}>

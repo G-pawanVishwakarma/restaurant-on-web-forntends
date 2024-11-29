@@ -41,7 +41,7 @@ function ComingSoonPage() {
                   <Stack spacing={3}>
                     <Typography variant="h4">Coming Soon</Typography>
                     <Typography variant="h2">
-                      <Box sx={{ color: theme.palette.primary.main, display: 'inline-block' }}>Able Pro</Box> - The Bootstrap Admin Template
+                      <Box sx={{ color: theme.palette.primary.main, display: 'inline-block' }}>Restaurants on web</Box> - The Bootstrap Admin Template
                     </Typography>
                     <Typography color="textSecondary">
                       Presenting Material-UI based React Dashboard Template to build performance centric websites and applications.

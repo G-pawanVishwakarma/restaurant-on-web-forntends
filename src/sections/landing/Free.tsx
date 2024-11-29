@@ -30,7 +30,7 @@ const FreePage = () => {
                 </Typography>
               </Grid>
               <Grid item xs={12}>
-                <Typography>Download the Free MIT Able Pro Dashboard Template before make your purchase decision.</Typography>
+                <Typography>Download the Free MIT Restaurants on web Dashboard Template before make your purchase decision.</Typography>
               </Grid>
             </Grid>
           </FadeInWhenVisible>

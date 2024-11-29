@@ -1,4 +1,4 @@
-// import { Products } from 'types/e-commerce';
+// import { Payments } from 'types/payment-method';
 // import axios from 'utils/axios';
 import InvoiceDetails from 'views/apps/InvoiceDetails';
 
@@ -21,9 +21,9 @@ export default function Page({ params }: Props) {
 // Return a list of `params` to populate the [slug] dynamic segment
 export async function generateStaticParams() {
   // todo: this need to look back again once we implemted SWR
-  // const response = await axios.get('/api/products/list');
+  // const response = await axios.get('/api/Payments/list');
 
-  // return response.data.products.map((prod: Products) => ({
+  // return response.data.Payments.map((prod: Payments) => ({
   //   id: prod.id
   // }));
 

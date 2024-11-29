@@ -1,19 +1,11 @@
 import axios, { AxiosRequestConfig } from 'axios';
-import { getSession } from 'next-auth/react';
 
-const axiosServices = axios.create({ baseURL: process.env.NEXT_APP_API_URL });
+const axiosServices = axios.create({
+  baseURL: process.env.NEXT_APP_API_URL || 'http://localhost:1337/' // Make sure the base URL is correct
+});
 
-// ==============================|| AXIOS - FOR MOCK SERVICES ||============================== //
-
-/**
- * Request interceptor to add Authorization token to request
- */
 axiosServices.interceptors.request.use(
   async (config) => {
-    const session = await getSession();
-    if (session?.token.accessToken) {
-      config.headers['Authorization'] = `Bearer ${session?.token.accessToken}`;
-    }
     return config;
   },
   (error) => {
@@ -24,8 +16,8 @@ axiosServices.interceptors.request.use(
 axiosServices.interceptors.response.use(
   (response) => response,
   (error) => {
-    if (error.response.status === 401 && !window.location.href.includes('/login')) {
-      window.location.pathname = '/login';
+    if (error.response.status === 401 && !window.location.href.includes('/')) {
+      window.location.pathname = '/';
     }
     return Promise.reject((error.response && error.response.data) || 'Wrong Services');
   }
@@ -33,40 +25,29 @@ axiosServices.interceptors.response.use(
 
 export default axiosServices;
 
-export const fetcher = async (
-  args: string | [string, AxiosRequestConfig],
-  p0: { method: string; headers: { 'Content-Type': string }; body: string }
-) => {
-  const [url, config] = Array.isArray(args) ? args : [args];
-
-  const res = await axiosServices.get(url, { ...config });
-
-  return res.data;
+// POST request handler
+export const fetcherPost = async (url: string, data: any, config: AxiosRequestConfig = {}) => {
+  try {
+    const response = await axiosServices.post(url, data, config);
+    return response.data; // Return only the data from the response
+  } catch (error: any) {
+    // Handling errors, for now, just logging the error
+    console.error('Error with fetcherPost:', error);
+    throw error; // Re-throw error so it can be handled in the component
+  }
 };
 
-export const fetcherPost = async (
-  args: string | [string, AxiosRequestConfig],
-  p0: { method: string; headers: { 'Content-Type': string }; body: string }
+// GET request handler (you already have a version)
+export const fetcher = async (
+  url: string,
+  p0: { identifier: string | undefined; password: string | undefined },
+  config: AxiosRequestConfig = {}
 ) => {
-  // Handle both string and array input for args
-  const [url, config] = Array.isArray(args) ? args : [args, {}];
-
-  // Set up the final config with the body and headers
-  const finalConfig: AxiosRequestConfig = {
-    method: p0.method, // "POST" or other methods
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    data: p0.body, // The body to send in the request
-    ...config // Spread in any additional config passed in the URL/config array
-  };
-
   try {
-    const res = await axios(url, finalConfig);
-    return res.data; // Return the data from the response
-  } catch (error) {
-    // Handle the error (you can customize this part based on your needs)
-    console.error('Error in fetcherPost:', error);
-    throw error;
+    const response = await axiosServices.get(url, config);
+    return response.data; // Return only the data from the response
+  } catch (error: any) {
+    console.error('Error with fetcher:', error);
+    throw error; // Re-throw error so it can be handled in the component
   }
 };

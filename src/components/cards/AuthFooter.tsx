@@ -20,7 +20,7 @@ const AuthFooter = () => {
         textAlign={matchDownSM ? 'center' : 'inherit'}
       >
         <Typography variant="subtitle2" color="secondary" component="span">
-          Able Pro ♥ crafted by Team{' '}
+          Restaurants on web ♥ crafted by Team{' '}
           <Typography
             component={Link}
             variant="subtitle2"

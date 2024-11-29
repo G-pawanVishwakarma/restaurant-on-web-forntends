@@ -33,7 +33,7 @@ const Technologies = [
     trending: false,
     icon: techBootstrap,
     title: 'Bootstrap 5',
-    description: "Able Pro - Boost your project's visual appeal and functionality with our Bootstrap 5 dashboard template.",
+    description: "Restaurants on web - Boost your project's visual appeal and functionality with our Bootstrap 5 dashboard template.",
     preview: 'https://ableproadmin.com/dashboard/index.html',
     free: 'https://links.codedthemes.com/vYUWM'
   },
@@ -42,7 +42,7 @@ const Technologies = [
     icon: techMui,
     title: 'React Material-UI',
     description:
-      'Able Pro React dashboard template is a powerful tool that utilizes the Material-UI component library to create stunning and intuitive user interfaces.',
+      'Restaurants on web React dashboard template is a powerful tool that utilizes the Material-UI component library to create stunning and intuitive user interfaces.',
     preview: 'https://ableproadmin.com/react',
     free: 'https://links.codedthemes.com/vYUWM'
   },
@@ -51,7 +51,7 @@ const Technologies = [
     icon: techNet,
     title: 'Asp.net',
     description:
-      'Able Pro .NET version is a robust dashboard template designed specifically for .NET developers. Its comes with a wide range of pre-built components.',
+      'Restaurants on web .NET version is a robust dashboard template designed specifically for .NET developers. Its comes with a wide range of pre-built components.',
     preview: 'https://able-pro.azurewebsites.net/',
     free: 'https://links.codedthemes.com/vYUWM'
   },
@@ -60,7 +60,7 @@ const Technologies = [
     icon: techCodeigniter,
     title: 'CodeIgniter',
     description:
-      'Able Pro CodeIgniter version is a powerful dashboard template built specifically for developers who use the CodeIgniter PHP framework.',
+      'Restaurants on web CodeIgniter version is a powerful dashboard template built specifically for developers who use the CodeIgniter PHP framework.',
     preview: 'https://ableproadmin.com/codeigniter/default/public/',
     free: 'https://links.codedthemes.com/vYUWM'
   },
@@ -69,7 +69,7 @@ const Technologies = [
     icon: techFigma,
     title: 'Figma',
     description:
-      'Able Pro comes with a Figma design file that allows you to customize and fine-tune your dashboard to meet your specific needs.',
+      'Restaurants on web comes with a Figma design file that allows you to customize and fine-tune your dashboard to meet your specific needs.',
     preview: 'https://links.codedthemes.com/mQZrX',
     free: null
   }
@@ -108,7 +108,7 @@ const TechnologiesPage = () => {
                   delay: 0.4
                 }}
               >
-                <Typography>Explore the Demos of Able Pro in multiple technologies.</Typography>
+                <Typography>Explore the Demos of Restaurants on web in multiple technologies.</Typography>
               </motion.div>
             </Grid>
           </Grid>

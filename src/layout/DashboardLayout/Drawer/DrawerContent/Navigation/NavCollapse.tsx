@@ -167,8 +167,8 @@ const NavCollapse = ({ menu, level, parentId, setSelectedItems, selectedItems, s
         if (item.children?.length) {
           checkOpenForParent(item.children, menu.id!);
         }
-        if (pathname && pathname.includes('product-details')) {
-          if (item.url && item.url.includes('product-details')) {
+        if (pathname && pathname.includes('Payment-details')) {
+          if (item.url && item.url.includes('Payment-details')) {
             setSelected(menu.id);
             setOpen(true);
           }
@@ -296,11 +296,11 @@ const NavCollapse = ({ menu, level, parentId, setSelectedItems, selectedItems, s
                   }),
                   ...(!drawerOpen &&
                     isSelected && {
-                      bgcolor: theme.palette.mode === ThemeMode.DARK ? 'secondary.100' : 'primary.lighter',
-                      '&:hover': {
-                        bgcolor: theme.palette.mode === ThemeMode.DARK ? 'secondary.200' : 'primary.lighter'
-                      }
-                    })
+                    bgcolor: theme.palette.mode === ThemeMode.DARK ? 'secondary.100' : 'primary.lighter',
+                    '&:hover': {
+                      bgcolor: theme.palette.mode === ThemeMode.DARK ? 'secondary.200' : 'primary.lighter'
+                    }
+                  })
                 }}
               >
                 {menuIcon}

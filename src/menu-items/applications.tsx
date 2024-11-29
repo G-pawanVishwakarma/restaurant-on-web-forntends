@@ -137,41 +137,49 @@ const applications: NavItemType = {
     },
 
     {
-      id: 'e-commerce',
-      title: <FormattedMessage id="e-commerce" />,
+      id: 'payment-method',
+      title: <FormattedMessage id="payment-method" />,
       type: 'collapse',
       icon: icons.ecommerce,
       children: [
         {
-          id: 'products',
-          title: <FormattedMessage id="products" />,
+          id: 'Payment-details',
+          title: <FormattedMessage id="Payment-details" />,
           type: 'item',
-          url: '/apps/e-commerce/products'
-        },
-        {
-          id: 'product-details',
-          title: <FormattedMessage id="product-details" />,
-          type: 'item',
-          url: '/apps/e-commerce/product-details/1',
+          url: '/apps/payment-method/payment-details/1',
           breadcrumbs: false
         },
         {
-          id: 'product-list',
-          title: <FormattedMessage id="product-list" />,
+          id: 'payment-list',
+          title: <FormattedMessage id="payment-list" />,
           type: 'item',
-          url: '/apps/e-commerce/product-list'
+          url: '/apps/payment-method/payment-list'
         },
         {
-          id: 'add-new-product',
-          title: <FormattedMessage id="add-new-product" />,
+          id: 'add-new-payment',
+          title: <FormattedMessage id="add-new-payment" />,
           type: 'item',
-          url: '/apps/e-commerce/add-new-product'
+          url: '/apps/payment-method/add-new-payment'
+        }
+      ]
+    },
+    {
+      id: 'Order-source',
+      title: <FormattedMessage id="order-source" />,
+      type: 'collapse',
+      icon: icons.ecommerce,
+      children: [
+        {
+          id: 'orderSource-list',
+          title: <FormattedMessage id="orderSource-list" />,
+          type: 'item',
+          url: '/apps/order-source/orderSource-list'
         },
         {
-          id: 'checkout',
-          title: <FormattedMessage id="checkout" />,
+          id: 'add-new-orderSource',
+          title: <FormattedMessage id="add-new-orderSource" />,
           type: 'item',
-          url: '/apps/e-commerce/checkout'
+          url: '/apps/order-source/add-new-orderSource'
         }
       ]
     }

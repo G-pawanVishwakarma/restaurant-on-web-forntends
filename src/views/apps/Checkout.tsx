@@ -6,7 +6,7 @@ import Box from '@mui/material/Box';
 // PROJECT IMPORTS
 import MainCard from 'components/MainCard';
 import CircularLoader from 'components/CircularLoader';
-import CheckoutTab from 'sections/apps/e-commerce/checkout/CheckoutTab';
+import CheckoutTab from 'sections/apps/payment-method/checkout/CheckoutTab';
 import { useGetCart } from 'api/cart';
 
 // ==============================|| ECOMMERCE - CHECKOUT ||============================== //

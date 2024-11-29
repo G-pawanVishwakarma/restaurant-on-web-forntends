@@ -64,7 +64,7 @@ const PartnerPage = () => {
                   delay: 0.4
                 }}
               >
-                <Typography>From Startups to Fortune 500 companies using our Template for their product.</Typography>
+                <Typography>From Startups to Fortune 500 companies using our Template for their payment.</Typography>
               </motion.div>
             </Grid>
           </Grid>

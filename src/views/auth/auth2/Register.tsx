@@ -1,8 +1,8 @@
 'use client';
 
 // NEXT
-import Link from 'next/link';
 import Image from 'next/image';
+import Link from 'next/link';
 
 // MATERIAL - UI
 import Grid from '@mui/material/Grid';
@@ -10,10 +10,10 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
 // PROJECT IMPORTS
-import Logo from 'components/logo';
+import RestaurantLogo from 'components/logo/RestaurantLogo';
 import useUser from 'hooks/useUser';
-import AuthSocButton from 'sections/auth/AuthSocButton';
 import AuthDivider from 'sections/auth/AuthDivider';
+import AuthSocButton from 'sections/auth/AuthSocButton';
 import AuthWrapper2 from 'sections/auth/AuthWrapper2';
 import FirebaseRegister from 'sections/auth/auth-forms/AuthRegister';
 
@@ -31,7 +31,7 @@ const RegisterPage = () => {
     <AuthWrapper2>
       <Grid container spacing={3}>
         <Grid item xs={12} sx={{ textAlign: 'center' }}>
-          <Logo />
+          <RestaurantLogo />
         </Grid>
         <Grid item xs={12}>
           <Grid container spacing={1}>

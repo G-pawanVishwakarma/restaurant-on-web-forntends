@@ -34,7 +34,7 @@ import Visitors from 'sections/widget/chart/Visitors';
 
 import ProjectAnalytics from 'sections/widget/chart/ProjectAnalytics';
 
-import ProductOverview from 'sections/widget/chart/ProductOverview';
+import paymentOverview from 'sections/widget/chart/paymentOverview';
 import TotalIncome from 'sections/widget/chart/TotalIncome';
 
 import LanguagesSupport from 'sections/widget/chart/LanguagesSupport';
@@ -158,7 +158,7 @@ const WidgetChart = () => {
 
       {/* row 4 */}
       <Grid item xs={12} md={6}>
-        <ProductOverview />
+        <paymentOverview />
       </Grid>
       <Grid item xs={12} md={6}>
         <TotalIncome />

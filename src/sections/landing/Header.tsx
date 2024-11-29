@@ -90,7 +90,7 @@ const HeaderPage = () => {
                     component="div"
                     sx={{ fontSize: { xs: '0.875rem', md: '1rem' }, fontWeight: 400, lineHeight: { xs: 1.4, md: 1.4 } }}
                   >
-                    Able Pro is the one of the Featured admin dashboard template in Envato Marketplace and used by over 2.5K+ Customers
+                    Restaurants on web is the one of the Featured admin dashboard template in Envato Marketplace and used by over 2.5K+ Customers
                     wordwide.
                   </Typography>
                 </motion.div>
@@ -117,7 +117,7 @@ const HeaderPage = () => {
                   </Grid>
                   <Grid item>
                     <AnimateButton>
-                      <Button component={Link} href="/login" target="_blank" size="large" color="primary" variant="contained">
+                      <Button component={Link} href="/" target="_blank" size="large" color="primary" variant="contained">
                         Live Preview
                       </Button>
                     </AnimateButton>

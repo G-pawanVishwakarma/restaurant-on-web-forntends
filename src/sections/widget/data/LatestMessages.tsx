@@ -99,7 +99,7 @@ const LatestMessages = () => (
               <Grid container spacing={1}>
                 <Grid item xs={12}>
                   <Typography component="div" align="left" variant="subtitle1">
-                    + 5 New Products were added!
+                    + 5 New payments were added!
                   </Typography>
                   <Typography color="secondary" align="left" variant="caption">
                     Congratulations!

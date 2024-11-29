@@ -49,7 +49,7 @@ const AssignUsers = () => {
                 <Profile variant="Bold" />
               </Avatar>
               <Stack>
-                <Typography variant="subtitle1">Able pro</Typography>
+                <Typography variant="subtitle1">Restaurants on web</Typography>
                 <Typography variant="caption">@ableprodevelop</Typography>
               </Stack>
             </Stack>

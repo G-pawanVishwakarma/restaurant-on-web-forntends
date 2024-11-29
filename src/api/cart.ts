@@ -4,7 +4,7 @@ import { Chance } from 'chance';
 import useSWR, { mutate } from 'swr';
 
 // types
-import { Address, CartCheckoutStateProps, ProductCardProps } from 'types/cart';
+import { Address, CartCheckoutStateProps, PaymentCardProps } from 'types/cart';
 
 const chance = new Chance();
 const LOCAL_STORAGE = 'able-pro-material-next-ts';
@@ -15,7 +15,7 @@ export const endpoints = {
 
 const initialState: CartCheckoutStateProps = {
   step: 0,
-  products: [],
+  Payments: [],
   subtotal: 0,
   total: 0,
   discount: 0,
@@ -29,12 +29,12 @@ const initialState: CartCheckoutStateProps = {
 };
 
 export function useGetCart() {
-  const localProducts = localStorage.getItem(LOCAL_STORAGE);
+  const localPayments = localStorage.getItem(LOCAL_STORAGE);
 
   // to update local state based on key
   const { data, isLoading } = useSWR(
     endpoints.key,
-    () => (localProducts ? (JSON.parse(localProducts) as CartCheckoutStateProps) : initialState),
+    () => (localPayments ? (JSON.parse(localPayments) as CartCheckoutStateProps) : initialState),
     {
       revalidateIfStale: false,
       revalidateOnFocus: false,
@@ -50,31 +50,31 @@ export function useGetCart() {
   return memoizedValue;
 }
 
-export function addToCart(product: ProductCardProps, products: ProductCardProps[]) {
+export function addToCart(Payment: PaymentCardProps, Payments: PaymentCardProps[]) {
   // to update local state based on key
-  let inCartProduct: ProductCardProps[];
-  let newProduct: ProductCardProps;
+  let inCartPayment: PaymentCardProps[];
+  let newPayment: PaymentCardProps;
   let subtotal: number = 0;
-  let latestProducts: ProductCardProps[];
+  let latestPayments: PaymentCardProps[];
 
-  newProduct = { ...product, itemId: chance.timestamp() };
-  subtotal = newProduct.quantity * newProduct.offerPrice!;
+  newPayment = { ...Payment, itemId: chance.timestamp() };
+  subtotal = newPayment.quantity * newPayment.offerPrice!;
 
-  inCartProduct = filter(products, {
-    id: newProduct.id,
-    color: newProduct.color,
-    size: newProduct.size
+  inCartPayment = filter(Payments, {
+    id: newPayment.id,
+    color: newPayment.color,
+    size: newPayment.size
   });
-  if (inCartProduct && inCartProduct.length > 0) {
-    const newProducts = products.map((item) => {
-      if (newProduct.id === item.id && newProduct.color === item.color && newProduct.size === item.size) {
-        return { ...newProduct, quantity: newProduct.quantity + inCartProduct[0].quantity };
+  if (inCartPayment && inCartPayment.length > 0) {
+    const newPayments = Payments.map((item) => {
+      if (newPayment.id === item.id && newPayment.color === item.color && newPayment.size === item.size) {
+        return { ...newPayment, quantity: newPayment.quantity + inCartPayment[0].quantity };
       }
       return item;
     });
-    latestProducts = newProducts;
+    latestPayments = newPayments;
   } else {
-    latestProducts = [...products, newProduct];
+    latestPayments = [...Payments, newPayment];
   }
 
   mutate(
@@ -82,7 +82,7 @@ export function addToCart(product: ProductCardProps, products: ProductCardProps[
     (currentCart: any) => {
       const newCart = {
         ...currentCart,
-        products: latestProducts,
+        Payments: latestPayments,
         subtotal: currentCart.subtotal + subtotal,
         total: currentCart.total + subtotal
       };
@@ -94,19 +94,19 @@ export function addToCart(product: ProductCardProps, products: ProductCardProps[
   );
 }
 
-export function updateCartProduct(id: string | number, quantity: number, products: ProductCardProps[]) {
+export function updateCartPayment(id: string | number, quantity: number, Payments: PaymentCardProps[]) {
   // to update local state based on key
-  let newProduct: ProductCardProps;
+  let newPayment: PaymentCardProps;
   let subtotal: number = 0;
   let oldSubTotal: number = 0;
-  let latestProducts: ProductCardProps[];
+  let latestPayments: PaymentCardProps[];
 
-  newProduct = filter(products, { itemId: id })[0];
+  newPayment = filter(Payments, { itemId: id })[0];
 
-  subtotal = quantity * newProduct.offerPrice!;
+  subtotal = quantity * newPayment.offerPrice!;
   oldSubTotal = 0;
 
-  latestProducts = products.map((item) => {
+  latestPayments = Payments.map((item) => {
     if (id === item.itemId) {
       oldSubTotal = item.quantity * (item.offerPrice || 0);
       return { ...item, quantity };
@@ -119,7 +119,7 @@ export function updateCartProduct(id: string | number, quantity: number, product
     (currentCart: any) => {
       const newCart = {
         ...currentCart,
-        products: latestProducts,
+        Payments: latestPayments,
         subtotal: currentCart.subtotal - oldSubTotal + subtotal,
         total: currentCart.total - oldSubTotal + subtotal
       };
@@ -131,23 +131,23 @@ export function updateCartProduct(id: string | number, quantity: number, product
   );
 }
 
-export function removeCartProduct(id: string | number, products: ProductCardProps[]) {
+export function removeCartPayment(id: string | number, Payments: PaymentCardProps[]) {
   // to update local state based on key
-  let newProduct: ProductCardProps;
+  let newPayment: PaymentCardProps;
   let subtotal: number = 0;
-  let latestProducts: ProductCardProps[];
+  let latestPayments: PaymentCardProps[];
 
-  newProduct = filter(products, { itemId: id })[0];
+  newPayment = filter(Payments, { itemId: id })[0];
 
-  subtotal = newProduct.quantity * newProduct.offerPrice!;
-  latestProducts = filter(products, (item) => item.itemId !== id);
+  subtotal = newPayment.quantity * newPayment.offerPrice!;
+  latestPayments = filter(Payments, (item) => item.itemId !== id);
 
   mutate(
     endpoints.key,
     (currentCart: any) => {
       const newCart = {
         ...currentCart,
-        products: latestProducts,
+        Payments: latestPayments,
         subtotal: currentCart.subtotal - subtotal,
         total: currentCart.total - subtotal
       };

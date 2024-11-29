@@ -163,7 +163,7 @@ const TabProfile = () => {
           <Grid item xs={12}>
             <MainCard title="About me">
               <Typography color="secondary">
-                Hello, I’m Anshan Handgun Creative Graphic Designer & User Experience Designer based in Website, I create digital Products a
+                Hello, I’m Anshan Handgun Creative Graphic Designer & User Experience Designer based in Website, I create digital payments a
                 more Beautiful and usable place. Morbid accusant ipsum. Nam nec tellus at.
               </Typography>
             </MainCard>

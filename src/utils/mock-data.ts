@@ -69,7 +69,7 @@ function mockData(index: number) {
       amount: chance.integer({ min: 1, max: 10000 })
     },
     image: {
-      product: (index: number) => `product_${index}`,
+      payment: (index: number) => `payment_${index}`,
       avatar: (index: number) => `avatar_${index}`
     },
     skill: lodash.sampleSize(skills, chance.integer({ min: 2, max: 6 })),

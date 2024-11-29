@@ -5,7 +5,7 @@ import { useMemo } from 'react';
 import { fetcher } from 'utils/axios';
 
 // types
-import { Address } from 'types/e-commerce';
+import { Address } from 'types/payment-method';
 
 export const endpoints = {
   key: 'api/address',

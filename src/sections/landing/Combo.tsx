@@ -25,13 +25,13 @@ const Technologies = [
   {
     icon: featureFigma,
     title: 'Figma Design System',
-    description: 'Check the live preview of Able Pro Figma design file. Figma file included in all licenses.',
+    description: 'Check the live preview of Restaurants on web Figma design file. Figma file included in all licenses.',
     preview: 'https://links.codedthemes.com/mQZrX'
   },
   {
     icon: featureComponents,
     title: 'Explore Components',
-    description: 'Access all components of Able Pro in one place to make your development work easier.',
+    description: 'Access all components of Restaurants on web in one place to make your development work easier.',
     preview: '/components-overview/buttons'
   },
   {
@@ -76,7 +76,7 @@ const ComboPage = () => {
                 }}
               >
                 <Typography>
-                  Able Pro caters to the needs of both developers and designers, whether they are beginners or experts.
+                  Restaurants on web caters to the needs of both developers and designers, whether they are beginners or experts.
                 </Typography>
               </motion.div>
             </Grid>

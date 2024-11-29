@@ -1,28 +1,28 @@
 // MATERIAL - UI
 import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 import Chip from '@mui/material/Chip';
+import Dialog from '@mui/material/Dialog';
+import FormControl from '@mui/material/FormControl';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Table from '@mui/material/Table';
-import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
-import TableRow from '@mui/material/TableRow';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
-import TableHead from '@mui/material/TableHead';
-import Typography from '@mui/material/Typography';
-import FormControl from '@mui/material/FormControl';
 import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Typography from '@mui/material/Typography';
 
 // THIRD - PARTY
 import { PDFDownloadLink } from '@react-pdf/renderer';
 import { format } from 'date-fns';
 
 // PROJECT IMPORTS
-import Logo from 'components/logo';
 import ExportPDFView from './export-pdf';
 
 // ASSETS
+import RestaurantLogo from 'components/logo/RestaurantLogo';
 import { DocumentDownload } from 'iconsax-react';
 
 // ==============================|| INVOICE - PREVIEW ||============================== //
@@ -42,7 +42,7 @@ const InvoiceModal = ({ isOpen, setIsOpen, invoiceInfo, items, onAddNextInvoice 
   try {
     date = format(new Date(invoiceInfo.date), 'dd/mm/yyyy');
     dueDate = format(new Date(invoiceInfo.due_date), 'dd/MM/yyyy');
-  } catch (error) {}
+  } catch (error) { }
 
   const subtotal = invoiceInfo?.invoice_detail?.reduce((prev: any, curr: any) => {
     if (curr.name.trim().length > 0) return prev + Number(curr.price * Math.floor(curr.qty));
@@ -70,7 +70,7 @@ const InvoiceModal = ({ isOpen, setIsOpen, invoiceInfo, items, onAddNextInvoice 
             <Stack sx={{ flexDirection: { xs: 'column', sm: 'row' } }} justifyContent="space-between">
               <Box sx={{ pt: 2.5 }}>
                 <Stack direction="row" spacing={2}>
-                  <Logo /> <Chip label="Paid" variant="light" color="success" />
+                  <RestaurantLogo /> <Chip label="Paid" variant="light" color="success" />
                 </Stack>
                 <Typography color="secondary">{invoiceInfo.invoice_id}</Typography>
               </Box>
@@ -188,9 +188,8 @@ const InvoiceModal = ({ isOpen, setIsOpen, invoiceInfo, items, onAddNextInvoice 
           </Button>
           <PDFDownloadLink
             document={<ExportPDFView list={invoiceInfo} />}
-            fileName={`${invoiceInfo?.invoiceId || invoiceInfo?.invoice_id}-${
-              invoiceInfo?.customer_name || invoiceInfo?.from?.name || invoiceInfo?.customerInfo?.name
-            }.pdf`}
+            fileName={`${invoiceInfo?.invoiceId || invoiceInfo?.invoice_id}-${invoiceInfo?.customer_name || invoiceInfo?.from?.name || invoiceInfo?.customerInfo?.name
+              }.pdf`}
             style={{ textDecoration: 'none' }}
           >
             <Button startIcon={<DocumentDownload />} variant="contained" color="primary">

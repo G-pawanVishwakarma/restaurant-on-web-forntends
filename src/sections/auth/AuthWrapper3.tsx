@@ -5,7 +5,6 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 
 // PROJECT IMPORTS
-import AuthSlider from './AuthSlider';
 
 interface Props {
   children: ReactNode;
@@ -39,7 +38,7 @@ const AuthWrapper2 = ({ children }: Props) => {
             >
               {children}
             </Grid>
-            <Grid
+            {/* <Grid
               item
               sx={{
                 display: { xs: 'none', lg: 'flex' },
@@ -51,7 +50,7 @@ const AuthWrapper2 = ({ children }: Props) => {
               }}
             >
               <AuthSlider />
-            </Grid>
+            </Grid> */}
           </Grid>
         </Grid>
       </Grid>

@@ -6,8 +6,8 @@ import './globals.css';
 import ProviderWrapper from './ProviderWrapper';
 
 export const metadata: Metadata = {
-  title: 'Able Pro Material UI React Dashboard Template',
-  description: 'Able Pro Material UI React Dashboard Template'
+  title: 'Restaurants on web Material UI React Dashboard Template',
+  description: 'Restaurants on web Material UI React Dashboard Template'
 };
 
 export default function RootLayout({ children }: { children: React.ReactElement }) {

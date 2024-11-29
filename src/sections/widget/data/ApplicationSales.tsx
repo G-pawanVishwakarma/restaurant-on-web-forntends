@@ -15,8 +15,8 @@ import Typography from '@mui/material/Typography';
 import MainCard from 'components/MainCard';
 
 // TABLE DATA
-function createData(name: string, designation: string, product: string, date?: string, badgeText?: string, badgeType?: string) {
-  return { name, designation, product, date, badgeText, badgeType };
+function createData(name: string, designation: string, payment: string, date?: string, badgeText?: string, badgeType?: string) {
+  return { name, designation, payment, date, badgeText, badgeType };
 }
 
 const rows = [
@@ -60,7 +60,7 @@ const ApplicationSales = () => (
                   {row.designation}
                 </Typography>
               </TableCell>
-              <TableCell align="right">{row.product}</TableCell>
+              <TableCell align="right">{row.payment}</TableCell>
               <TableCell align="right">{row.date}</TableCell>
               <TableCell align="right" sx={{ pr: 3 }}>
                 <span>{row.badgeText}</span>

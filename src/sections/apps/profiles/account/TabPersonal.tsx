@@ -140,7 +140,7 @@ const TabPersonal = () => {
                   fullWidth
                   multiline
                   rows={3}
-                  defaultValue="Hello, I’m Anshan Handgun Creative Graphic Designer & User Experience Designer based in Website, I create digital Products a more Beautiful and usable place. Morbid accusant ipsum. Nam nec tellus at."
+                  defaultValue="Hello, I’m Anshan Handgun Creative Graphic Designer & User Experience Designer based in Website, I create digital payments a more Beautiful and usable place. Morbid accusant ipsum. Nam nec tellus at."
                   id="personal-location"
                   placeholder="Location"
                 />
@@ -233,8 +233,8 @@ const TabPersonal = () => {
                         customInput={TextField}
                         placeholder="Phone Number"
                         defaultValue="8654239581"
-                        onBlur={() => {}}
-                        onChange={() => {}}
+                        onBlur={() => { }}
+                        onChange={() => { }}
                       />
                     </Stack>
                   </Stack>

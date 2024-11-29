@@ -6,8 +6,6 @@ import { useState } from 'react';
 import Link from 'next/link';
 
 // MATERIAL - UI
-import { alpha, useTheme } from '@mui/material/styles';
-import useMediaQuery from '@mui/material/useMediaQuery';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -20,21 +18,23 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Stack from '@mui/material/Stack';
+import { alpha, useTheme } from '@mui/material/styles';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 // PROJECT IMPORTS
-import Logo from 'components/logo';
-import IconButton from 'components/@extended/IconButton';
 import AnimateButton from 'components/@extended/AnimateButton';
+import IconButton from 'components/@extended/IconButton';
 
-import { APP_DEFAULT_PATH } from 'config';
 import { handlerComponentDrawer, useGetMenuMaster } from 'api/menu';
+import { APP_DEFAULT_PATH } from 'config';
 
 // ASSETS
 import { DocumentDownload, ExportSquare, HambergerMenu, Minus } from 'iconsax-react';
 
 // TYPES
+import RestaurantLogo from 'components/logo/RestaurantLogo';
 import { ThemeDirection } from 'types/config';
 
 // ==============================|| COMPONENTS - APP BAR ||============================== //
@@ -71,7 +71,7 @@ const Header = () => {
         <Toolbar sx={{ px: { xs: 1.5, sm: 4, md: 0, lg: 0 }, py: 1 }}>
           <Stack direction="row" sx={{ flexGrow: 1, display: { xs: 'none', md: 'block' } }} alignItems="center">
             <Typography component="div" sx={{ textAlign: 'left', display: 'inline-block' }}>
-              <Logo reverse to="/" />
+              <RestaurantLogo reverse to="/" />
             </Typography>
             <Chip
               label={process.env.NEXT_APP_VERSION}
@@ -94,7 +94,7 @@ const Header = () => {
               sx={{ ml: theme.direction === ThemeDirection.RTL ? 3 : 0 }}
               color="secondary.main"
               component={Link}
-              href="/login"
+              href="/"
               target="_blank"
               underline="none"
             >
@@ -144,7 +144,7 @@ const Header = () => {
           </Stack>
           <Box sx={{ width: '100%', alignItems: 'center', justifyContent: 'space-between', display: { xs: 'flex', md: 'none' } }}>
             <Typography component="div" sx={{ textAlign: 'left', display: 'inline-block' }}>
-              <Logo reverse to="/" />
+              <RestaurantLogo reverse to="/" />
             </Typography>
             <Stack direction="row" spacing={2}>
               <Button variant="outlined" color="warning" component={Link} href={APP_DEFAULT_PATH} sx={{ mt: 0.25 }}>

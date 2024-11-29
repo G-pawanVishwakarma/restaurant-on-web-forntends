@@ -12,12 +12,12 @@ import TableContainer from '@mui/material/TableContainer';
 import MainCard from 'components/MainCard';
 import SimpleBar from 'components/third-party/SimpleBar';
 
-type ProductCreateDataType = { sales: string; product: string; price: string; colorClass: string };
+type paymentCreateDataType = { sales: string; payment: string; price: string; colorClass: string };
 
 // TABLE DATA
-const createData = (sales: string, product: string, price: string, colorClass: string = '') => ({ sales, product, price, colorClass });
+const createData = (sales: string, payment: string, price: string, colorClass: string = '') => ({ sales, payment, price, colorClass });
 
-const rows: ProductCreateDataType[] = [
+const rows: paymentCreateDataType[] = [
   createData('2136', 'Head Phone', '$ 926.23'),
   createData('2546', 'Iphone V', '$ 485.85'),
   createData('2681', 'Jacket', '$ 786.4'),
@@ -28,10 +28,10 @@ const rows: ProductCreateDataType[] = [
   createData('6502', 'T-Shirt', '$ 642.23')
 ];
 
-// ===========================|| DATA WIDGET - PRODUCT SALES ||=========================== //
+// ===========================|| DATA WIDGET - payment SALES ||=========================== //
 
-const ProductSales = () => (
-  <MainCard title="Product Sales" content={false}>
+const paymentSales = () => (
+  <MainCard title="payment Sales" content={false}>
     <Grid sx={{ p: 2.5 }} container direction="row" justifyContent="space-around" alignItems="center">
       <Grid item>
         <Grid container direction="column" spacing={1} alignItems="center" justifyContent="center">
@@ -76,7 +76,7 @@ const ProductSales = () => (
           <TableHead>
             <TableRow>
               <TableCell sx={{ pl: 3 }}>Last Sales</TableCell>
-              <TableCell>Product Name</TableCell>
+              <TableCell>payment Name</TableCell>
               <TableCell align="right" sx={{ pr: 3 }}>
                 Price
               </TableCell>
@@ -88,7 +88,7 @@ const ProductSales = () => (
                 <TableCell sx={{ pl: 3 }}>
                   <span className={row.colorClass}>{row.sales}</span>
                 </TableCell>
-                <TableCell>{row.product}</TableCell>
+                <TableCell>{row.payment}</TableCell>
                 <TableCell align="right" sx={{ pr: 3 }}>
                   <span>{row.price}</span>
                 </TableCell>
@@ -101,4 +101,4 @@ const ProductSales = () => (
   </MainCard>
 );
 
-export default ProductSales;
+export default paymentSales;

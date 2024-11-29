@@ -1,12 +1,9 @@
 'use client';
 
-import { SyntheticEvent, useState } from 'react';
-
-// NEXT
 import Link from 'next/link';
-// Import useRouter for navigation
+import { SyntheticEvent, useEffect, useState } from 'react';
 
-// MATERIAL - UI
+// MATERIAL-UI components
 import Button from '@mui/material/Button';
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -24,21 +21,19 @@ import * as Yup from 'yup';
 
 import AnimateButton from 'components/@extended/AnimateButton';
 import IconButton from 'components/@extended/IconButton';
-import useScriptRef from 'hooks/useScriptRef';
-import { fetcher } from 'utils/axios';
 
 // ASSETS
 import { Eye, EyeSlash } from 'iconsax-react';
+import { signIn, useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 
 // ============================|| JWT - LOGIN ||============================ //
-
 const AuthLogin = ({ providers, csrfToken }: any) => {
-  const scriptedRef = useScriptRef();
-  const router = useRouter(); // Initialize useRouter for navigation
+  const { data: session, status } = useSession();
   const [checked, setChecked] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const [loginError, setLoginError] = useState<string | null>(null); // Track error messages
+  const [loginError, setLoginError] = useState<string | null>(null);
+  const router = useRouter();
 
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
@@ -47,6 +42,10 @@ const AuthLogin = ({ providers, csrfToken }: any) => {
   const handleMouseDownPassword = (event: SyntheticEvent) => {
     event.preventDefault();
   };
+
+  useEffect(() => {
+    console.log('session fhbdfgd: ', status, session);
+  }, [session, status]);
 
   return (
     <Formik
@@ -61,39 +60,34 @@ const AuthLogin = ({ providers, csrfToken }: any) => {
       })}
       onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
         try {
-          setSubmitting(true); // Ensure the submitting state is set to true on submit
-
-          // Sending POST request to login API
-          const response = await fetcher('api/auth/local', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              identifier: values.email,
-              password: values.password
-            })
+          const result = await signIn<'credentials'>('credentials', {
+            email: values.email,
+            password: values.password,
+            // callbackUrl: '/dashboard/default',
+            redirect: false
           });
-
-          if (response?.jwt) {
-            // Handle successful login
-            localStorage.setItem('jwt', response.jwt); // Save JWT token
-            setSubmitting(false);
-            if (scriptedRef.current) {
-              // Use next/router's push to navigate to dashboard
-              router.push('/dashboard/default'); // Redirect to dashboard page
-            }
-          } else {
-            // Handle login failure (invalid credentials)
-            setLoginError('Invalid credentials'); // Show custom error message
+          // console.log('result : ', result);
+          if (result?.error) {
+            setLoginError('Invalid credentials');
             setStatus({ success: false });
             setSubmitting(false);
+            // throw new Error(result.error);
+          } else {
+            // If login is successful, redirect to the dashboard
+            router.push('/apps/payment-method/payment-list');
           }
         } catch (err: any) {
-          setSubmitting(false);
-          if (scriptedRef.current) {
-            setErrors({ submit: 'Something went wrong' });
+          // console.error('Login error:', err);
+
+          // Handling error with response
+          if (err?.response) {
+            setLoginError(`API Error: ${err.response?.data?.message || 'An error occurred'}`);
+          } else {
+            setLoginError('An error occurred during login.');
           }
+
+          setSubmitting(false);
+          setStatus({ success: false });
         }
       }}
     >
@@ -121,6 +115,7 @@ const AuthLogin = ({ providers, csrfToken }: any) => {
                 )}
               </Stack>
             </Grid>
+
             <Grid item xs={12}>
               <Stack spacing={1}>
                 <InputLabel htmlFor="password-login">Password</InputLabel>
@@ -140,7 +135,6 @@ const AuthLogin = ({ providers, csrfToken }: any) => {
                         onClick={handleClickShowPassword}
                         onMouseDown={handleMouseDownPassword}
                         edge="end"
-                        color="secondary"
                       >
                         {showPassword ? <Eye /> : <EyeSlash />}
                       </IconButton>
@@ -175,6 +169,7 @@ const AuthLogin = ({ providers, csrfToken }: any) => {
                 </Links>
               </Stack>
             </Grid>
+
             {loginError && (
               <Grid item xs={12}>
                 <FormHelperText error>{loginError}</FormHelperText>
@@ -185,6 +180,7 @@ const AuthLogin = ({ providers, csrfToken }: any) => {
                 <FormHelperText error>{errors.submit}</FormHelperText>
               </Grid>
             )}
+
             <Grid item xs={12}>
               <AnimateButton>
                 <Button disabled={isSubmitting} fullWidth size="large" type="submit" variant="contained" color="primary">

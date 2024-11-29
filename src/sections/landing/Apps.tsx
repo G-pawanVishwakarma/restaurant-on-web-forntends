@@ -26,12 +26,12 @@ const Technologies = [
   {
     image: featureFigma,
     title: 'Chat',
-    description: 'Power your web apps with the conceptual chat app of Able Pro Dashboard Template.'
+    description: 'Power your web apps with the conceptual chat app of Restaurants on web Dashboard Template.'
   },
   {
     image: featureComponents,
-    title: 'E-commerce',
-    description: 'Collection, Filter, Product Detail, Add New Product, and Checkout pages makes your e-commerce app complete.'
+    title: 'payment-method',
+    description: 'Collection, Filter, payment Detail, Add New payment, and Checkout pages makes your payment-method app complete.'
   },
   {
     image: featureDocumentation,

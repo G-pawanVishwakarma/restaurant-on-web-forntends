@@ -11,7 +11,7 @@ import MainCard from 'components/MainCard';
 const SamplePage = () => (
   <MainCard title="Sample Card">
     <Typography variant="body1">
-      Do you Know? Able is used by more than 2.4K+ Customers worldwide. This new v9 version is the major release of Able Pro Dashboard
+      Do you Know? Able is used by more than 2.4K+ Customers worldwide. This new v9 version is the major release of Restaurants on web Dashboard
       Template with having brand new modern User Interface.
     </Typography>
   </MainCard>

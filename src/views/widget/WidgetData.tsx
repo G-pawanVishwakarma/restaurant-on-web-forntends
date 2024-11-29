@@ -6,7 +6,7 @@ import MyTask from 'sections/widget/data/MyTask';
 import UserPersonalData from 'sections/widget/data/UserPersonalData';
 import TeamMembers from 'sections/widget/data/TeamMembers';
 
-import Products from 'sections/widget/data/Products';
+import payments from 'sections/widget/data/payments';
 import MonthlyRevenue from 'sections/widget/data/MonthlyRevenue';
 
 import NewCustomers from 'sections/widget/data/NewCustomers';
@@ -23,7 +23,7 @@ import UserActivity from 'sections/widget/data/UserActivity';
 import LatestMessages from 'sections/widget/data/LatestMessages';
 
 import ProjectTable from 'sections/widget/data/ProjectTable';
-import ProductSales from 'sections/widget/data/ProductSales';
+import paymentSales from 'sections/widget/data/paymentSales';
 
 import TasksCard from 'sections/widget/data/TasksCard';
 import ApplicationSales from 'sections/widget/data/ApplicationSales';
@@ -56,7 +56,7 @@ const WidgetData = () => (
 
     {/* row 2 */}
     <Grid item xs={12} md={7} lg={8}>
-      <Products />
+      <payments />
     </Grid>
     <Grid item xs={12} md={5} lg={4}>
       <MonthlyRevenue />
@@ -116,7 +116,7 @@ const WidgetData = () => (
       <ProjectTable />
     </Grid>
     <Grid item xs={12} lg={6} md={6}>
-      <ProductSales />
+      <paymentSales />
     </Grid>
 
     {/* row 5 */}

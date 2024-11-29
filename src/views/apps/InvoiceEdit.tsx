@@ -82,7 +82,7 @@ const validationSchema = yup.object({
     .required('Invoice details is required')
     .of(
       yup.object().shape({
-        name: yup.string().required('Product name is required')
+        name: yup.string().required('Payment name is required')
       })
     )
     .min(1, 'Invoice must have at least 1 items')

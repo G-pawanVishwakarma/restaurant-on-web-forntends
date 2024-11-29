@@ -14,7 +14,7 @@ import { getIn } from 'formik';
 
 // PROJECT IMPORTS
 import InvoiceField from './InvoiceField';
-import AlertProductDelete from './AlertProductDelete';
+import AlertpaymentDelete from './AlertpaymentDelete';
 
 import { useGetInvoiceMaster } from 'api/invoice';
 import { openSnackbar } from 'api/snackbar';
@@ -40,7 +40,7 @@ const InvoiceItem = ({ id, name, description, qty, price, onDeleteItem, onEditIt
       onDeleteItem(index);
       openSnackbar({
         open: true,
-        message: 'Product Deleted successfully',
+        message: 'payment Deleted successfully',
         anchorOrigin: { vertical: 'top', horizontal: 'right' },
         variant: 'alert',
         alert: {
@@ -136,7 +136,7 @@ const InvoiceItem = ({ id, name, description, qty, price, onDeleteItem, onEditIt
           </Button>
         </Tooltip>
       </TableCell>
-      <AlertProductDelete title={name} open={open} handleClose={handleModalClose} />
+      <AlertpaymentDelete title={name} open={open} handleClose={handleModalClose} />
     </>
   );
 };

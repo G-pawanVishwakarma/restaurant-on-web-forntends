@@ -29,18 +29,18 @@ const createData = (
   avtar: string,
   name: string,
   designation: string,
-  product: string,
+  payment: string,
   date: string,
   badgeText: string,
   badgeType: ChipProps['color']
-) => ({ avtar, name, designation, product, date, badgeText, badgeType });
+) => ({ avtar, name, designation, payment, date, badgeText, badgeType });
 
 const rows = [
   createData(Avatar1, 'John Deo', 'Graphics Designer', 'Materially', 'Jun, 26', 'Low', 'warning'),
   createData(Avatar2, 'Jenifer Vintage', 'Web Designer', 'Mashable', 'March, 31', 'Lower', 'error'),
   createData(Avatar3, 'William Jem', 'Developer', 'Flatable', 'Aug, 02', 'Medium', 'primary'),
   createData(Avatar4, 'David Jones', 'Developer', 'Guruable', 'Sep, 22', 'High', 'info'),
-  createData(Avatar6, 'Stebin Ben', 'Leader', 'Able Pro', 'Sep, 22', 'Higher', 'success')
+  createData(Avatar6, 'Stebin Ben', 'Leader', 'Restaurants on web', 'Sep, 22', 'Higher', 'success')
 ];
 
 // ===========================|| DATA WIDGET - PROJECT TABLE ||=========================== //
@@ -85,7 +85,7 @@ const ProjectTable = () => (
                   </Grid>
                 </Grid>
               </TableCell>
-              <TableCell>{row.product}</TableCell>
+              <TableCell>{row.payment}</TableCell>
               <TableCell>{row.date}</TableCell>
               <TableCell align="right" sx={{ pr: 3 }}>
                 <Chip color={row.badgeType} label={row.badgeText} size="small" />

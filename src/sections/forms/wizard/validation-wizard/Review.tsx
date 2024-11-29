@@ -9,24 +9,24 @@ import Typography from '@mui/material/Typography';
 
 // ==============================|| VALIDATION WIZARD - REVIEW  ||============================== //
 
-const products = [
+const payments = [
   {
-    name: 'Product 1',
+    name: 'payment 1',
     desc: 'A nice thing',
     price: '$9.99'
   },
   {
-    name: 'Product 2',
+    name: 'payment 2',
     desc: 'Another thing',
     price: '$3.45'
   },
   {
-    name: 'Product 3',
+    name: 'payment 3',
     desc: 'Something else',
     price: '$6.51'
   },
   {
-    name: 'Product 4',
+    name: 'payment 4',
     desc: 'Best thing of all',
     price: '$14.11'
   },
@@ -48,10 +48,10 @@ export default function Review() {
         Order summary
       </Typography>
       <List disablePadding>
-        {products.map((product) => (
-          <ListItem sx={{ py: 1, px: 0 }} key={product.name}>
-            <ListItemText primary={product.name} secondary={product.desc} />
-            <Typography variant="body2">{product.price}</Typography>
+        {payments.map((payment) => (
+          <ListItem sx={{ py: 1, px: 0 }} key={payment.name}>
+            <ListItemText primary={payment.name} secondary={payment.desc} />
+            <Typography variant="body2">{payment.price}</Typography>
           </ListItem>
         ))}
 

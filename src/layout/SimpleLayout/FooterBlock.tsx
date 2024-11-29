@@ -65,7 +65,7 @@ const FooterBlock = ({ isFull }: showProps) => {
                   <Grid item xs={12}>
                     <Typography variant="subtitle1" sx={{ fontWeight: 400 }}>
                       Phoenixcoded has gained the trust of over 5.5K customers since 2015, thanks to our commitment to delivering
-                      high-quality products. Our experienced team players are responsible for managing Able Pro.
+                      high-quality payments. Our experienced team players are responsible for managing Restaurants on web.
                     </Typography>
                   </Grid>
                 </Grid>

@@ -75,7 +75,7 @@ const TestimonialPage = () => {
     },
     {
       image: Avatar6,
-      text: '“I love the looks of Able Pro 7.0. I really like the colors you guys have chosen for this theme. It looks really nice.. 💎“',
+      text: '“I love the looks of Restaurants on web 7.0. I really like the colors you guys have chosen for this theme. It looks really nice.. 💎“',
       name: 'ritelogic',
       designation: 'Other'
     },
@@ -113,7 +113,7 @@ const TestimonialPage = () => {
                   <Box component="span" sx={{ color: 'primary.main' }}>
                     love{' '}
                   </Box>{' '}
-                  Able Pro, Now your turn 😍
+                  Restaurants on web, Now your turn 😍
                 </Typography>
               </motion.div>
             </Grid>

@@ -102,9 +102,9 @@ const ApexPieChart = () => {
   );
 };
 
-// ==============================|| CHART WIDGETS - PRODUCT OVERVIEW ||============================== //
+// ==============================|| CHART WIDGETS - payment OVERVIEW ||============================== //
 
-const ProductOverview = () => {
+const paymentOverview = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
   const open = Boolean(anchorEl);
@@ -243,4 +243,4 @@ const ProductOverview = () => {
   );
 };
 
-export default ProductOverview;
+export default paymentOverview;

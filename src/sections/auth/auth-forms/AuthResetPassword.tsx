@@ -92,7 +92,7 @@ const AuthResetPassword = () => {
               }
             } as SnackbarProps);
             setTimeout(() => {
-              router.push(user ? '/auth/login' : '/login');
+              router.push(user ? '/auth/login' : '/');
             }, 1500);
           }
         } catch (err: any) {

@@ -33,7 +33,7 @@ import { renderFilterTypes, GlobalFilter } from 'utils/react-table';
 // ASSETS
 import { ArrowDown, ArrowUp, Star1 } from 'iconsax-react';
 
-const productImage = '/assets/images/widget';
+const paymentImage = '/assets/images/widget';
 
 // ==============================|| REACT TABLE ||============================== //
 
@@ -86,7 +86,7 @@ function ReactTable({ columns, data }: Props) {
     <Stack spacing={3}>
       <Box sx={{ p: 3, pb: 0 }}>
         <Stack direction="row" alignItems="center" justifyContent="space-between" spacing={1}>
-          <Typography variant="h5">Products</Typography>
+          <Typography variant="h5">payments</Typography>
           <Box sx={{ minWidth: 120 }}>
             <FormControl fullWidth>
               <Select id="demo-simple-select" value={age} onChange={handleChange}>
@@ -153,9 +153,9 @@ function ReactTable({ columns, data }: Props) {
   );
 }
 
-// ==============================|| DATA WIDGET - PRODUCTS ||============================== //
+// ==============================|| DATA WIDGET - paymentS ||============================== //
 
-const Products = () => {
+const payments = () => {
   const theme = useTheme();
   const data = useMemo(() => makeData(10), []);
 
@@ -166,13 +166,13 @@ const Products = () => {
   const columns = useMemo(
     () => [
       {
-        Header: 'Products',
+        Header: 'payments',
         accessor: 'fatherName',
         Cell: ({ row }: { row: Row }) => {
           const { values } = row;
           return (
             <Stack direction="row" spacing={1.5} alignItems="center">
-              <Avatar alt="Avatar 1" size="lg" variant="rounded" src={`${productImage}/img-prod-${randomIntFromInterval(1, 4)}.jpg`} />
+              <Avatar alt="Avatar 1" size="lg" variant="rounded" src={`${paymentImage}/img-prod-${randomIntFromInterval(1, 4)}.jpg`} />
               <Stack spacing={0}>
                 <Typography variant="subtitle1">{values.fatherName}</Typography>
                 <Typography variant="caption" color="text.secondary" sx={{ display: { xs: 'none', lg: 'inherit' } }}>
@@ -262,4 +262,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default payments;

@@ -43,13 +43,13 @@ const plans = [
 ];
 
 const planList = [
-  'One End Product', // 0
+  'One End payment', // 0
   'No attribution required', // 1
   'TypeScript', // 2
   'Figma Design Resources', // 3
-  'Create Multiple Products', // 4
+  'Create Multiple payments', // 4
   'Create a SaaS Project', // 5
-  'Resale Product', // 6
+  'Resale payment', // 6
   'Separate sale of our UI Elements?' // 7
 ];
 

@@ -30,13 +30,13 @@ function createData(
   customer: string,
   cid: string,
   photo: string,
-  product: string,
+  payment: string,
   quantity: string,
   date: string,
   status: string,
   statuscolor: ChipProps['color']
 ) {
-  return { customer, cid, photo, product, quantity, date, status, statuscolor };
+  return { customer, cid, photo, payment, quantity, date, status, statuscolor };
 }
 
 const rows = [
@@ -66,7 +66,7 @@ export default function LatestOrder() {
               <TableCell sx={{ pl: 3 }}>Customer</TableCell>
               <TableCell>Order Id</TableCell>
               <TableCell>Photo</TableCell>
-              <TableCell>Product</TableCell>
+              <TableCell>payment</TableCell>
               <TableCell align="right">Total</TableCell>
               <TableCell align="center">Date</TableCell>
               <TableCell align="center">Status</TableCell>
@@ -83,7 +83,7 @@ export default function LatestOrder() {
                 <TableCell>
                   <CardMedia component="img" image={row.photo} title="image" sx={{ width: 20, height: 'auto' }} />
                 </TableCell>
-                <TableCell>{row.product}</TableCell>
+                <TableCell>{row.payment}</TableCell>
                 <TableCell align="right">{row.quantity}</TableCell>
                 <TableCell align="center">{row.date}</TableCell>
                 <TableCell align="center">

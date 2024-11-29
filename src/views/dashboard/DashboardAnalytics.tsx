@@ -16,7 +16,7 @@ import ProjectAnalytics from 'sections/widget/chart/ProjectAnalytics';
 import EcommerceIncome from 'sections/widget/chart/EcommerceIncome';
 import LanguagesSupport from 'sections/widget/chart/LanguagesSupport';
 
-import ProductOverview from 'sections/widget/chart/ProductOverview';
+import paymentOverview from 'sections/widget/chart/paymentOverview';
 
 import PaymentHistory from 'sections/widget/data/PaymentHistory';
 import EcommerceRadial from 'sections/widget/chart/EcommerceRadial';
@@ -64,7 +64,7 @@ const DashboardAnalytics = () => {
         </Grid>
       </Grid>
       <Grid item xs={12} md={6}>
-        <ProductOverview />
+        <paymentOverview />
       </Grid>
       <Grid item xs={12} lg={3}>
         <Grid container spacing={3}>

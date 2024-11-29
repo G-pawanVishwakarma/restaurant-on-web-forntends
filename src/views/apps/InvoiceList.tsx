@@ -56,7 +56,6 @@ import {
   TablePagination,
   TableRowSelection
 } from 'components/third-party/ReactTable';
-import AlertProductDelete from 'sections/apps/invoice/AlertProductDelete';
 
 import { APP_DEFAULT_PATH } from 'config';
 import { handlerDelete, deleteInvoice, useGetInvoice, useGetInvoiceMaster } from 'api/invoice';
@@ -69,6 +68,7 @@ import { Edit, Eye, InfoCircle, ProfileTick, Trash } from 'iconsax-react';
 // TYPES
 import { InvoiceList } from 'types/invoice';
 import { SnackbarProps } from 'types/snackbar';
+import AlertpaymentDelete from 'sections/apps/invoice/AlertProductDelete';
 
 interface InvoiceWidgets {
   title: string;
@@ -516,7 +516,7 @@ const InvoiceLists = () => {
       <MainCard content={false}>
         <ScrollX>
           {invoiceLoading ? <EmptyTables /> : <ReactTable {...{ data: list, columns }} />}
-          <AlertProductDelete
+          <AlertpaymentDelete
             title={invoiceId.toString()}
             open={invoiceMaster ? invoiceMaster.alertPopup : false}
             handleClose={handleClose}

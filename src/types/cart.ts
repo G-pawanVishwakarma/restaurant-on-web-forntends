@@ -7,7 +7,7 @@ export interface CartStateProps {
 
 export interface CartCheckoutStateProps {
   step: number;
-  products: CartProductStateProps[];
+  payments: CartpaymentStateProps[];
   subtotal: number;
   total: number;
   discount: number;
@@ -16,7 +16,7 @@ export interface CartCheckoutStateProps {
   payment: CartPaymentStateProps;
 }
 
-export interface CartProductStateProps {
+export interface CartpaymentStateProps {
   itemId?: string | number;
   id: string | number;
   name: string;
@@ -44,6 +44,7 @@ export type Address = {
 };
 
 export interface CartPaymentStateProps {
+  quantity: any;
   type: string;
   method: string;
   card: string;
@@ -53,7 +54,7 @@ export type KeyedObject = {
   [key: string]: string | number | KeyedObject | any;
 };
 
-export interface ProductCardProps extends KeyedObject {
+export interface paymentCardProps extends KeyedObject {
   id?: string | number;
   color?: string;
   name: string;

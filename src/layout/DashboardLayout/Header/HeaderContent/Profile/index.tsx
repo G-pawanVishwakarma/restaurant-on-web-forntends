@@ -77,8 +77,8 @@ const ProfilePage = () => {
   const handleLogout = async () => {
     try {
       signOut({ redirect: false });
-      router.push('/login');
-    } catch (err) {}
+      router.push('/');
+    } catch (err) { }
   };
 
   const anchorRef = useRef<any>(null);

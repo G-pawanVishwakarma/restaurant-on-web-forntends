@@ -1,6 +1,6 @@
 import type { NextAuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
-import axios from 'utils/axios';
+import axios, { fetcherPost } from 'utils/axios';
 
 let users = [
   {
@@ -15,23 +15,33 @@ export const authOptions: NextAuthOptions = {
   secret: process.env.NEXTAUTH_SECRET_KEY,
   providers: [
     CredentialsProvider({
-      id: 'login',
-      name: 'login',
+      name: 'Credentials',
       credentials: {
         email: { name: 'email', label: 'Email', type: 'email', placeholder: 'Enter Email' },
         password: { name: 'password', label: 'Password', type: 'password', placeholder: 'Enter Password' }
       },
       async authorize(credentials) {
         try {
-          const user = await axios.post('/api/account/login', {
-            password: credentials?.password,
-            email: credentials?.email
-          });
-
-          if (user) {
-            user.data.user['accessToken'] = user.data.serviceToken;
-            return user.data.user;
+          const response = await fetcherPost(
+            'api/auth/local', // API endpoint
+            {
+              identifier: credentials?.email,
+              password: credentials?.password
+            },
+            {
+              headers: {
+                'Content-Type': 'application/json'
+              }
+            }
+          );
+          console.log('response: ', response);
+          if (response.jwt) {
+            if (typeof window !== 'undefined') {
+              window.localStorage.setItem('jwt', response.jwt);
+            }
+            return response;
           }
+          throw new Error('Invalid username or password.');
         } catch (e: any) {
           const errorMessage = e?.response.data.message;
           throw new Error(errorMessage);
@@ -70,22 +80,35 @@ export const authOptions: NextAuthOptions = {
     })
   ],
   callbacks: {
-    jwt: async ({ token, user, account }) => {
-      if (user) {
-        // @ts-ignore
-        token.accessToken = user.accessToken;
-        token.id = user.id;
-        token.provider = account?.provider;
+    jwt: async ({ token, user }) => {
+      const returnToken = { ...token };
+
+      // Check if there's a user object and add the jwt and other user properties
+      if (user?.jwt) {
+        returnToken.jwt = user.jwt;
+        returnToken.email = user.email; // Add email to token
+        returnToken.username = user.username; // Add username to token
+        returnToken.documentId = user.documentId; // Add documentId to token
+
+        // Store JWT to localStorage (if not already stored)
+        if (typeof window !== 'undefined' && !localStorage.getItem('jwt')) {
+          window.localStorage.setItem('jwt', user.jwt);
+        }
       }
-      return token;
+
+      return returnToken;
     },
-    session: ({ session, token }) => {
-      if (token) {
-        session.id = token.id;
-        session.provider = token.provider;
-        session.token = token;
-      }
-      return session;
+    session: async ({ session, token }) => {
+      // Pass the properties from the token to the session
+      return {
+        ...session,
+        user: {
+          ...session.user,
+          documentId: token.documentId, // Get documentId from token
+          username: token.username, // Get username from token
+          email: token.email // Get email from token
+        }
+      };
     }
   },
   session: {
@@ -96,7 +119,7 @@ export const authOptions: NextAuthOptions = {
     secret: process.env.NEXT_APP_JWT_SECRET
   },
   pages: {
-    signIn: '/login',
+    signIn: '/',
     newUser: '/register'
   }
 };

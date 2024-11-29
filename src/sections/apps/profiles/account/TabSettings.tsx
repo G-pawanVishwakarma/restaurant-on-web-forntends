@@ -77,7 +77,7 @@ const TabSettings = () => {
                 <Typography variant="subtitle1">Email you with?</Typography>
                 <List sx={{ p: 0, '& .MuiListItem-root': { p: 0, py: 0.25 } }}>
                   <ListItem>
-                    <ListItemText primary={<Typography color="secondary">News about PCT-themes products and feature updates</Typography>} />
+                    <ListItemText primary={<Typography color="secondary">News about PCT-themes payments and feature updates</Typography>} />
                     <Checkbox defaultChecked />
                   </ListItem>
                   <ListItem>
@@ -91,11 +91,11 @@ const TabSettings = () => {
                     <Checkbox />
                   </ListItem>
                   <ListItem>
-                    <ListItemText primary={<Typography color="secondary">News about products and other services</Typography>} />
+                    <ListItemText primary={<Typography color="secondary">News about payments and other services</Typography>} />
                     <Checkbox />
                   </ListItem>
                   <ListItem>
-                    <ListItemText primary={<Typography color="secondary">Tips and Document business products</Typography>} />
+                    <ListItemText primary={<Typography color="secondary">Tips and Document business payments</Typography>} />
                     <Checkbox />
                   </ListItem>
                 </List>

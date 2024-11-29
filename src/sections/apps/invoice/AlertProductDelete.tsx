@@ -19,9 +19,9 @@ interface Props {
   handleClose: (status: boolean) => void;
 }
 
-// ==============================|| INVOICE - PRODUCT DELETE ||============================== //
+// ==============================|| INVOICE - payment DELETE ||============================== //
 
-export default function AlertProductDelete({ title, open, handleClose }: Props) {
+export default function AlertpaymentDelete({ title, open, handleClose }: Props) {
   return (
     <Dialog
       open={open}
@@ -46,7 +46,7 @@ export default function AlertProductDelete({ title, open, handleClose }: Props) 
               <Typography variant="subtitle1" component="span">
                 &quot;{title}&quot;
               </Typography>
-              product, Its details will also be removed from invoice.
+              payment, Its details will also be removed from invoice.
             </Typography>
           </Stack>
 
